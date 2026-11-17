@@ -50,7 +50,7 @@ Prebuilt packages are attached to the [latest release](https://github.com/lennyb
   ```
 - **Windows 10/11 (64-bit)** — `wii-meta-editor-0.1.0-windows-x86_64.exe`
 
-The packages and the Windows executable are unsigned. Windows SmartScreen may show a warning for the `.exe`.
+The packages and the Windows executable are unsigned. Windows SmartScreen may show a warning for the `.exe`. The Linux binaries are built against glibc 2.17 so they also run on older distributions.
 
 ## Build and run
 
@@ -76,6 +76,12 @@ Or run it directly, optionally with a file to open:
 ```sh
 cargo run --release
 cargo run --release -- examples/meta.xml
+```
+
+For a portable Linux binary that also runs on older distributions (glibc 2.17+), install [cargo-zigbuild](https://github.com/rust-cross/cargo-zigbuild) and Zig, then run:
+
+```sh
+make portable
 ```
 
 ### Linux dependencies

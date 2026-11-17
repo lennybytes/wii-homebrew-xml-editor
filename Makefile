@@ -3,10 +3,11 @@ PREFIX   ?= /usr/local
 DESTDIR  ?=
 CARGO    ?= cargo
 ARGS     ?=
+PORTABLE_TARGET ?= x86_64-unknown-linux-gnu.2.17
 
 BIN      := target/release/$(APP)
 
-.PHONY: all build release run test check fmt clippy clean install uninstall help
+.PHONY: all build release portable run test check fmt clippy clean install uninstall help
 
 all: build
 
@@ -15,6 +16,9 @@ build:
 
 release:
 	$(CARGO) build --release
+
+portable:
+	$(CARGO) zigbuild --release --target $(PORTABLE_TARGET)
 
 run:
 	$(CARGO) run --release -- $(ARGS)
@@ -51,6 +55,7 @@ help:
 	@echo "Targets:"
 	@echo "  build      Build a debug binary"
 	@echo "  release    Build an optimized binary"
+	@echo "  portable   Build a Linux binary for glibc 2.17+ (needs cargo-zigbuild + zig)"
 	@echo "  run        Run the app (ARGS='path/to/meta.xml')"
 	@echo "  test       Run unit tests"
 	@echo "  check      Type-check the project"

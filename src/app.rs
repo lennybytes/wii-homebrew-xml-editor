@@ -234,10 +234,9 @@ impl MetaEditorApp {
                 {
                     self.save_as_dialog();
                 }
-                let save_button = egui::Button::new(
-                    RichText::new("Save").strong().color(Color32::WHITE),
-                )
-                .fill(Color32::from_rgb(48, 84, 150));
+                let save_button =
+                    egui::Button::new(RichText::new("Save").strong().color(Color32::WHITE))
+                        .fill(Color32::from_rgb(48, 84, 150));
                 if ui
                     .add(save_button)
                     .on_hover_text("Save the current file (Ctrl+S)")
