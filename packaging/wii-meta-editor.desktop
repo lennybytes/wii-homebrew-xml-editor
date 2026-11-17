@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Wii Meta XML Editor
+GenericName=Wii meta.xml Editor
+Comment=Create and edit meta.xml files for the Wii Homebrew Channel
+Exec=wii-meta-editor %f
+Icon=wii-meta-editor
+Terminal=false
+Categories=Development;Utility;
+Keywords=Wii;Homebrew;meta.xml;XML;
+MimeType=application/xml;text/xml;
+StartupNotify=true
